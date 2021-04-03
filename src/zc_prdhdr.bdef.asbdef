@@ -1,0 +1,23 @@
+projection;
+
+define behavior for ZC_PRDHDR alias PRDHDR
+use etag
+{
+
+  field ( readonly : update ) ItemID;
+  use create;
+  use update;
+  use delete;
+
+  use association _itm { create; }
+}
+
+define behavior for ZC_PRDITM alias PRDITM
+use etag
+{
+  use update;
+  use delete;
+
+  use association _hdr { }
+
+}

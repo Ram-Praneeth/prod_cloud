@@ -1,0 +1,54 @@
+managed implementation in class zcl_bp_co_prdhdr unique;
+
+define behavior for ZCO_PRDHDR //alias <alias_name>
+persistent table zprod_hdr
+with additional save
+lock master
+etag master last_changed_at
+//authorization master ( instance )
+{
+
+  // semantic key is calculated in a determination
+  // Fields that are mandatory for create but should be read-only afterwards
+  field ( mandatory : create, readonly : update ) itemid;
+  field ( readonly ) Category;
+
+  // mandatory fields that are required to create a travel
+  field ( mandatory ) itemclass, itemsclass, manftr;
+
+  // mapping entity's field types with table field types
+  mapping for ZPROD_HDR corresponding;
+
+  // standard operations for travel entity
+  create;
+  update;
+  delete;
+
+  //determinations
+  //determination calcCategory on save { create; field Category; }
+
+  // create item association
+  association _itm { create; }
+}
+
+
+define behavior for ZCO_PRDITM //alias <alias_name>
+persistent table zprod_item
+lock dependent by _hdr
+//authorization dependent by <association>
+//etag master <field_name>
+{
+
+  // static field control
+  field ( mandatory : create ) region, mfdate, werks, dmbtr;
+  field ( readonly ) itemid;
+
+  // mapping entity's field types with table field types
+  mapping for ZPROD_ITEM corresponding;
+
+  // standard operations for booking supplement entity
+  update;
+  delete;
+
+  association _hdr {  }
+}

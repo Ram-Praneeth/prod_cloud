@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for ZC_PRDHDR'
+define service ZUI_C_PRODUCT {
+  expose ZC_PRDHDR as PRDHDR;
+  expose ZC_PRDITM as PRDITM;
+}
