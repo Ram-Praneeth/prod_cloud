@@ -6,6 +6,7 @@ define root view entity ZI_PRDHDR
 {
 
   key itemid,
+  itemname,
       itemclass,
       itemsclass,
       manftr,

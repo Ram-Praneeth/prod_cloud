@@ -37,7 +37,7 @@ define view entity ZC_PRDITM
 
 
       @UI.lineItem: [{position:50,importance: #MEDIUM , label: 'Product Price'}]
-      @UI.fieldGroup: [{qualifier: 'Item1', position:50, label: 'Product Price Price',importance: #HIGH}]
+      @UI.fieldGroup: [{qualifier: 'Item1', position:50, label: 'Product Price',importance: #HIGH}]
       @Semantics.amount.currencyCode: 'currency_code'
       dmbtr  as Price,
 

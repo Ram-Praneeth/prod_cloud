@@ -5,6 +5,7 @@ define root view entity ZCO_PRDHDR
   composition [0..*] of ZCO_PRDITM as _itm
 {
   key itemid,
+      itemname,
       itemclass,
       itemsclass,
       case itemclass

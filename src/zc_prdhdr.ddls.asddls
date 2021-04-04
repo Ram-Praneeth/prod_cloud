@@ -57,32 +57,36 @@ define root view entity ZC_PRDHDR
       @Search.fuzzinessThreshold: 0.9
       //      @UI.hidden: #(CreateAction)
   key itemid          as ItemID,
+  
+  @UI.lineItem: [{position: 20, importance: #HIGH, label: 'Item name' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH, label: 'Item name' }]
+      itemname       as Itemname,
 
-      @UI.lineItem: [{position: 20, importance: #HIGH, label: 'Item Class' }]
-      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH, label: 'Item Class' }]
-      @UI.selectionField: [{position: 20 }]
+      @UI.lineItem: [{position: 30, importance: #HIGH, label: 'Item Class' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH, label: 'Item Class' }]
+      @UI.selectionField: [{position: 30 }]
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.9
       itemclass       as ItemClass,
 
-      @UI.lineItem: [{position: 30, importance: #HIGH, label: 'Item Subclass' }]
-      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH, label: 'Item Subclass' }]
-      @UI.selectionField: [{position: 30 }]
+      @UI.lineItem: [{position: 40, importance: #HIGH, label: 'Item Subclass' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 40,importance: #HIGH, label: 'Item Subclass' }]
+      @UI.selectionField: [{position: 40 }]
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.9
       itemsclass      as ItemSubclass,
 
-      @UI.lineItem: [{position: 40, importance: #HIGH, label: 'Category' }]
-      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 40,importance: #HIGH, label: 'Category' }]
-      @UI.selectionField: [{position: 40 }]
+      @UI.lineItem: [{position: 50, importance: #HIGH, label: 'Category'  }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 50,importance: #HIGH, label: 'Category' }]
+      @UI.selectionField: [{position: 50 }]
       Category        as Category,
-
-      @UI.lineItem: [{position: 50, importance: #HIGH, label: 'Manufacturer' }]
-      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 50,importance: #HIGH, label: 'Manufacturer' }]
+      
+       @UI.lineItem: [{position: 60, importance: #HIGH, label: 'Manufacturer' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH, label: 'Manufacturer' }]
       manftr          as Manufacturer,
 
-      @UI.lineItem: [{position: 60, importance: #HIGH, type: #AS_ADDRESS, value: 'ManufacturerAddress' , label: 'Manufacturer"s Address' }]
-      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH, label: 'Manufacturer"s Address' }]
+      @UI.lineItem: [{position: 70, importance: #HIGH,  value: 'ManufacturerAddress' , label: 'Manufacturer"s Address' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 70,importance: #HIGH, label: 'Manufacturer"s Address' }]
       mnfaddr         as ManufacturerAddress,
 
       @UI.hidden: true
