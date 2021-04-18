@@ -53,14 +53,15 @@ define root view entity ZC_PRDHDR
       @UI.lineItem: [{position: 10, importance: #HIGH, label: 'Product Id' }]
       @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH, label: 'Product Id' }]
       @UI.selectionField: [{position: 10 }]
+      @EndUserText.quickInfo: 'Product Identification'
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.9
       //      @UI.hidden: #(CreateAction)
   key itemid          as ItemID,
-  
-  @UI.lineItem: [{position: 20, importance: #HIGH, label: 'Item name' }]
+
+      @UI.lineItem: [{position: 20, importance: #HIGH, label: 'Item name' }]
       @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 20,importance: #HIGH, label: 'Item name' }]
-      itemname       as Itemname,
+      itemname        as Itemname,
 
       @UI.lineItem: [{position: 30, importance: #HIGH, label: 'Item Class' }]
       @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 30,importance: #HIGH, label: 'Item Class' }]
@@ -80,8 +81,8 @@ define root view entity ZC_PRDHDR
       @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 50,importance: #HIGH, label: 'Category' }]
       @UI.selectionField: [{position: 50 }]
       Category        as Category,
-      
-       @UI.lineItem: [{position: 60, importance: #HIGH, label: 'Manufacturer' }]
+
+      @UI.lineItem: [{position: 60, importance: #HIGH, label: 'Manufacturer' }]
       @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH, label: 'Manufacturer' }]
       manftr          as Manufacturer,
 
