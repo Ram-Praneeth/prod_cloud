@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Product Header Composite view'
 define root view entity ZCO_PRDHDR
   as select from ZI_PRDHDR
@@ -12,6 +12,7 @@ define root view entity ZCO_PRDHDR
       when 'ELECTRONICS' then 'ELE'
       else ''
       end as Category,
+      mtart,
       manftr,
       mnfaddr,
       created_by,

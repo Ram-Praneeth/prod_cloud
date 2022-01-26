@@ -14,7 +14,7 @@ etag master last_changed_at
   field ( readonly ) Category;
 
   // mandatory fields that are required to create a travel
-  field ( mandatory ) itemname,itemclass, itemsclass, manftr;
+  field ( mandatory ) itemname,itemclass,itemsclass,mtart,manftr;
 
   // mapping entity's field types with table field types
   mapping for ZPROD_HDR corresponding;

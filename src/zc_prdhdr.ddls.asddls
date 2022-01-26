@@ -1,8 +1,8 @@
 @EndUserText.label: 'Product Header Projection view'
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @UI: {
  headerInfo: {
-               typeName: 'Header',
+               typeName: 'Product Header',
                typeNamePlural: 'Product Header',
                title: { type: #STANDARD, value: 'ItemID' } }
               }
@@ -22,7 +22,7 @@ define root view entity ZC_PRDHDR
                   id: 'ProductHeader',
                   type: #COLLECTION,
                   position: 10,
-                  label: 'Header Details'
+                  label: 'Product Header'
                   },
                   {
                   type: #FIELDGROUP_REFERENCE,
@@ -44,7 +44,7 @@ define root view entity ZC_PRDHDR
                   id: '_itm',
                   purpose: #STANDARD,
                   type: #LINEITEM_REFERENCE,
-                  label: 'Item details',
+                  label: 'Product Items',
                   position: 10,
                   targetElement: '_itm'
                   }
@@ -82,12 +82,20 @@ define root view entity ZC_PRDHDR
       @UI.selectionField: [{position: 50 }]
       Category        as Category,
 
-      @UI.lineItem: [{position: 60, importance: #HIGH, label: 'Manufacturer' }]
-      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH, label: 'Manufacturer' }]
+      @UI.lineItem: [{position: 60, importance: #HIGH, label: 'Material Type' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 60,importance: #HIGH, label: 'Material Type' }]
+      @UI.selectionField: [{position: 50 }]
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.9
+      @Consumption.valueHelpDefinition: [{ entity :{name : 'ZC_MTART', element: 'mtart' } }]
+      mtart           as MaterialType,
+
+      @UI.lineItem: [{position: 70, importance: #HIGH, label: 'Manufacturer' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 70,importance: #HIGH, label: 'Manufacturer' }]
       manftr          as Manufacturer,
 
-      @UI.lineItem: [{position: 70, importance: #HIGH,  value: 'ManufacturerAddress' , label: 'Manufacturer"s Address' }]
-      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 70,importance: #HIGH, label: 'Manufacturer"s Address' }]
+      @UI.lineItem: [{position: 80, importance: #HIGH,  value: 'ManufacturerAddress' , label: 'Manufacturer"s Address' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 80,importance: #HIGH, label: 'Manufacturer"s Address' }]
       mnfaddr         as ManufacturerAddress,
 
       @UI.hidden: true

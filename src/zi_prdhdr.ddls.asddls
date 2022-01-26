@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Product Header Interface view'
 define root view entity ZI_PRDHDR
   as select from zprod_hdr
@@ -9,6 +9,7 @@ define root view entity ZI_PRDHDR
   itemname,
       itemclass,
       itemsclass,
+      mtart,
       manftr,
       mnfaddr,
 

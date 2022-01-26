@@ -14,12 +14,15 @@ define view ZPROD_I_ITM
       dmbtr         as Dmbtr,
       @Semantics.currencyCode: true
       currency_code as CurrencyCode,
+
+      /*-- Admin data --*/
       @Semantics.user.createdBy: true
       created_by,
       @Semantics.systemDateTime.createdAt: true
       created_at,
       @Semantics.user.lastChangedBy: true
       last_changed_by,
-      @Semantics.systemDateTime.localInstanceLastChangedAt: true
+      @Semantics.systemDateTime.lastChangedAt: true
       last_changed_at
+
 }
