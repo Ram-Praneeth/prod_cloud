@@ -3,7 +3,7 @@
 {
 "FROM":
 [
-"ZPROD_ITEM"
+"ZPROD_SOLD_CNTRY"
 ],
 "ASSOCIATED":
 [

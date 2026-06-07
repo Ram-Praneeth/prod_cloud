@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZMTART</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000004</LENG>
+    <OUTPUTLEN>000004</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>Material Type</DDTEXT>
+    <DOMMASTER>E</DOMMASTER>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZMTART</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>FERT</DOMVALUE_L>
+     <DDTEXT>Finished Products</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZMTART</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>ROH</DOMVALUE_L>
+     <DDTEXT>Raw Materials</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZMTART</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>HALB</DOMVALUE_L>
+     <DDTEXT>Semi-Finished Products</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZMTART</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>HIBE</DOMVALUE_L>
+     <DDTEXT>Operating Supplies</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZMTART</DOMNAME>
+     <VALPOS>0005</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>DIEN</DOMVALUE_L>
+     <DDTEXT>Services</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZMTART</DOMNAME>
+     <VALPOS>0006</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>ERSA</DOMVALUE_L>
+     <DDTEXT>Spare Parts</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZMTART</DOMNAME>
+     <VALPOS>0007</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>NLAG</DOMVALUE_L>
+     <DDTEXT>Non-Stock Materials</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

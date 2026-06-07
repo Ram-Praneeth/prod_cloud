@@ -1,0 +1,85 @@
+@Metadata.layer: #CORE
+
+@UI: {
+ headerInfo: {
+              typeName: 'Product Header',
+              typeNamePlural: 'Product Header',
+              title: { type: #STANDARD, value: 'ItemID' }, 
+              description: { type: #STANDARD, value: 'Itemid' } 
+ },
+ presentationVariant: [{ sortOrder: [{ by: 'ItemID', direction: #ASC }] ,
+                         visualizations: [{ type: #AS_LINEITEM  }]
+            }]
+}
+
+annotate entity ZC_PRDHDR with 
+{
+
+      //ZI_SERV_ORDHRD
+      @UI.facet: [
+                  {
+                  id: 'ProductHeader',
+                  type: #COLLECTION,
+                  position: 10,
+                  label: 'Product Header'
+                  },
+                  {
+                  type: #FIELDGROUP_REFERENCE,
+                  position: 10,
+                  targetQualifier: 'GeneralData1',
+                  parentId: 'ProductHeader',
+                  isSummary: true,
+                  isPartOfPreview: true
+                  },
+                  {
+                  type: #FIELDGROUP_REFERENCE,
+                  position: 20,
+                  targetQualifier: 'GeneralData2',
+                  parentId: 'ProductHeader',
+                  isSummary: true,
+                  isPartOfPreview: true
+                  },
+                  {
+                  id: '_itm',
+                  purpose: #STANDARD,
+                  type: #LINEITEM_REFERENCE,
+                  label: 'Product Items',
+                  position: 30,
+                  targetElement: '_itm',
+                  hidden: #( HideFields )     // Hide the Item entity while creating a new product,
+                                              // Display/Edit after creation of Product                                              
+                  }
+              ]
+
+      @UI.lineItem: [{position: 10, importance: #HIGH, label: 'Product Id' }]
+      @UI.fieldGroup: [{qualifier: 'GeneralData1',position: 10,importance: #HIGH, label: 'Product Id' }]
+      @UI.selectionField: [{position: 10 }]
+      @EndUserText.quickInfo: 'Product Identification'
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.9
+Itemid;
+      @UI.lineItem: [{position: 20, importance: #HIGH, label: 'Material Type' }]
+Mtart;
+      @UI.lineItem: [{position: 30, importance: #HIGH, label: 'Product Description' }]
+Itemname;
+      @UI.lineItem: [{position: 40, importance: #HIGH, label: 'Product Classification' }]
+Itemclass;
+      @UI.lineItem: [{position: 50, importance: #HIGH, label: 'Product Subclassification' }]
+Itemsclass;
+      @UI.lineItem: [{position: 60, importance: #HIGH, label: 'Product Details' }]
+Description;
+
+      // This field will be hidden while creating a new product, Display/Edit after creation of Product
+      @UI.lineItem: [{position: 70, importance: #HIGH, label: 'Is Product Tested?', hidden: #( HideFields )  }]
+IsProduct;
+      @UI.lineItem: [{position: 80, importance: #HIGH, label: 'Manufacturer' }]
+Manftr;
+      @UI.lineItem: [{position: 90, importance: #HIGH, label: 'Country of Origin' }]
+Origincountry;
+      
+      // Address field will be hidden while creating a new product, Display/Edit after creation of Product
+      @UI.lineItem: [{position: 100, importance: #HIGH, label: 'Manufacturer''s'' Address', hidden: #( HideFields ) }]
+      @UI.multiLineText: true
+Mnfaddr;
+   
+}

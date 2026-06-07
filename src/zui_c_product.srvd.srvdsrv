@@ -1,5 +1,12 @@
 @EndUserText.label: 'Service Definition for ZC_PRDHDR'
-define service ZUI_C_PRODUCT {
-  expose ZC_PRDHDR as PRDHDR;
-  expose ZC_PRDITM as PRDITM;
+@ObjectModel: {
+    leadingEntity: {
+       name: 'ZC_PRDHDR'
+   }
+}
+define service ZUI_C_PRODUCT
+  provider contracts odata_v4_ui {
+  expose ZC_PRDHDR         as ProductHeader;
+  expose ZC_PRDITM         as ProductItem;
+  expose ZC_PRD_SOLD_CNTRY as ProductSoldCountry;
 }

@@ -1,23 +1,35 @@
 projection;
+strict ( 2 );
+use draft;
 
-define behavior for ZC_PRDHDR alias PRDHDR
-use etag
+define behavior for ZC_PRDHDR //alias <alias_name>
 {
-
-  field ( readonly : update ) ItemID;
   use create;
   use update;
   use delete;
 
-  use association _itm { create; }
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _itm { create; with draft; }
+  use association _soldcntry { create; with draft; }
 }
 
-define behavior for ZC_PRDITM alias PRDITM
-use etag
+define behavior for ZC_PRDITM //alias <alias_name>
 {
   use update;
   use delete;
 
-  use association _hdr { }
+  use association _hdr { with draft; }
+}
 
+define behavior for ZC_PRD_SOLD_CNTRY //alias <alias_name>
+{
+  use update;
+  use delete;
+
+  use association _Header { with draft; }
 }

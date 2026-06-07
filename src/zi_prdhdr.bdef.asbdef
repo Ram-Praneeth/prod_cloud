@@ -1,0 +1,80 @@
+managed implementation in class zbp_i_prdhdr unique;
+strict ( 2 );
+with draft;
+
+//with cross associations;
+
+define behavior for ZI_PRDHDR //alias <alias_name>
+persistent table zprod_hdr
+draft table zprod_hdr_d
+lock master
+total etag Lastchangedat
+authorization master ( global, instance )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( mandatory : create, readonly : update ) Itemid;
+
+  association _itm { create; with draft; }
+  association _soldcntry { create; with draft; }
+
+  draft action Edit;
+  draft action Activate optimized with additional implementation;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare
+  {
+
+  }
+
+  mapping for zprod_hdr
+    {
+      Itemid     = itemid;
+      Itemclass  = itemclass;
+      Itemsclass = itemsclass;
+    }
+
+}
+
+define behavior for ZI_PRDITM //alias <alias_name>
+persistent table zprod_item
+draft table zprod_item_d
+lock dependent by _hdr
+authorization dependent by _hdr
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+  field ( readonly ) Itemid, Plant;
+  association _hdr { with draft; }
+
+  mapping for zprod_item
+    {
+      Itemid  = itemid;
+      Plant   = werks;
+    }
+
+}
+
+define behavior for ZI_PRD_SOLD_CNTRY //alias <alias_name>
+persistent table zprod_sold_cntry
+draft table zprod_soldctry_d
+lock dependent by _Header
+authorization dependent by _Header
+etag master LocalLastChangedAt
+{
+  update;
+  delete;
+  field ( readonly ) Itemid, Country;
+  association _Header { with draft; }
+
+  mapping for zprod_sold_cntry
+    {
+      Itemid  = itemid;
+      Country = country;
+    }
+
+}

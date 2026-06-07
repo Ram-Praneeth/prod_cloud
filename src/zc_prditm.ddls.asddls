@@ -1,5 +1,5 @@
 @EndUserText.label: 'Product Item Projection view'
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 
 @UI.headerInfo: {
                   typeName: 'Service Order Item',
@@ -10,7 +10,7 @@
 @ObjectModel.semanticKey: ['ItemID']
 
 define view entity ZC_PRDITM
-  as projection on ZCO_PRDITM
+  as projection on ZI_PRDITM
 {
 
       @UI.facet: [
@@ -21,33 +21,54 @@ define view entity ZC_PRDITM
 
       @UI.lineItem: [{position:10,importance: #HIGH, label:'Product Id' }]
       @UI.fieldGroup: [{qualifier: 'Item1', label:'Product Id', position:10,importance: #HIGH}]
-  key itemid as ItemID,
+  key Itemid,
 
-      @UI.lineItem: [{position:20,importance: #HIGH, label: 'Region' }]
-      @UI.fieldGroup: [{qualifier: 'Item1', position:20, label: 'Region',importance: #HIGH}]
-  key region as Region,
+  key Plant,
 
-      @UI.lineItem: [{position:30,importance: #MEDIUM , label: 'Manufacturing Date'}]
-      @UI.fieldGroup: [{qualifier: 'Item1', position:30, label: 'Manufacturing Date',importance: #HIGH}]
-      mfdate as ManufacturingDate,
+      Mfdate,
+      Expirydate,
+      Dimension,
+      Grossweight,
+      Netweight,
+      Uom,
+      Lgort,
+      Dmbtr,
 
-      @UI.lineItem: [{position:40,importance: #MEDIUM , label: 'Plant'}]
-      @UI.fieldGroup: [{qualifier: 'Item1', position:40, label: 'Plant',importance: #HIGH}]
-      werks  as Plant,
+      @Consumption.valueHelpDefinition: [{ entity:{ name: 'I_Currency',
+                                                    element: 'Currency' }
+                                         }]
+      CurrencyCode,
+      CreatedBy,
+      CreatedAt,
+      LastChangedBy,
+      LastChangedAt,
+      LocalLastChangedAt,
 
-
-      @UI.lineItem: [{position:50,importance: #MEDIUM , label: 'Product Price'}]
-      @UI.fieldGroup: [{qualifier: 'Item1', position:50, label: 'Product Price',importance: #HIGH}]
-      @Semantics.amount.currencyCode: 'currency_code'
-      dmbtr  as Price,
-
-
-      @Consumption.valueHelpDefinition:
-                              [{
-                                 entity:{ name: 'I_Currency',
-                                          element: 'Currency' }
-                              }]
-      currency_code,
+      //      @UI.lineItem: [{position:20,importance: #HIGH, label: 'Region' }]
+      //      @UI.fieldGroup: [{qualifier: 'Item1', position:20, label: 'Region',importance: #HIGH}]
+      //     region as Region,
+      //
+      //      @UI.lineItem: [{position:30,importance: #MEDIUM , label: 'Manufacturing Date'}]
+      //      @UI.fieldGroup: [{qualifier: 'Item1', position:30, label: 'Manufacturing Date',importance: #HIGH}]
+      //      mfdate as ManufacturingDate,
+      //
+      //      @UI.lineItem: [{position:40,importance: #MEDIUM , label: 'Plant'}]
+      //      @UI.fieldGroup: [{qualifier: 'Item1', position:40, label: 'Plant',importance: #HIGH}]
+      //      werks  as Plant,
+      //
+      //
+      //      @UI.lineItem: [{position:50,importance: #MEDIUM , label: 'Product Price'}]
+      //      @UI.fieldGroup: [{qualifier: 'Item1', position:50, label: 'Product Price',importance: #HIGH}]
+      //      @Semantics.amount.currencyCode: 'currency_code'
+      //      dmbtr  as Price,
+      //
+      //
+      //      @Consumption.valueHelpDefinition:
+      //                              [{
+      //                                 entity:{ name: 'I_Currency',
+      //                                          element: 'Currency' }
+      //                              }]
+      //      currency_code,
 
       /* Associations */
       _hdr : redirected to parent ZC_PRDHDR
